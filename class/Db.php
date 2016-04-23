@@ -5,7 +5,7 @@ class Db{
             $_host = "localhost",
             $_user = "hackedzw_husain",
             $_pass = "fttrisha@123",
-            $_db = "hackedzw_theyoo",
+            $_db = "hackedzw_ondew",
             $_error = false;*/
 
     //member variables

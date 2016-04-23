@@ -60,3 +60,9 @@ function check_apikey($apikey){
 
     return $count == 1 ? true : false;
 }
+
+
+// method to generate OTP code
+function generate_otp(){
+    return rand(1000,9999);
+}
