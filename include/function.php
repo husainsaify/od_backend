@@ -66,3 +66,20 @@ function check_apikey($apikey){
 function generate_otp(){
     return rand(1000,9999);
 }
+
+//function to check mobile number is valid
+function check_mobile_number_registered($activeRequired,$mobile){
+    //count only active users
+    if ($activeRequired){
+        $count = Db::rowCount("users",array(
+            "active" => "y",
+            "mobile" => $mobile
+        ),array("=","="));
+    }else{
+        $count = Db::rowCount("users",array(
+            "mobile" => $mobile
+        ),array("="));
+    }
+
+    return $count == 1 ? true : false;
+}

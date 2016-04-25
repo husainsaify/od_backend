@@ -28,6 +28,13 @@ $q = Db::query("SELECT id FROM `otp_code` WHERE `mobile`=? AND `otp_code`=?",arr
 $count = $q->rowCount();
 
 if ($count == 1){
+    //make account active
+    Db::update("users",array(
+        "verified_otp" => "y",
+        "active" => "y",
+        "last_login" => time()
+    ),array("mobile","=",$mobile));
+
     //success
     $response["return"] = true;
     $response["message"] = "Success";
